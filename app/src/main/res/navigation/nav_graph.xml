@@ -11,10 +11,10 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
-        android:id="@+id/searchFragment"
-        android:name="com.example.restaurantapp.SearchFragment"
+        android:id="@+id/cartFragment"
+        android:name="com.example.restaurantapp.CartFragment"
         android:label="fragment_search"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_cart" />
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.restaurantapp.LoginFragment"

@@ -39,9 +39,10 @@
     </com.google.android.material.appbar.AppBarLayout>
     
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/button_favorites_up"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_favorite"
+        android:src="@drawable/ic_cart"
         android:backgroundTint="@color/strongOrange"
         android:tint="@color/white"
         app:layout_anchor="@id/appbar"
@@ -91,6 +92,7 @@
                 />
 
             <TextView
+                android:id="@+id/tv_instruction_steps"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="@id/tv_instructions"
@@ -106,7 +108,7 @@
     </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/img_addtocart"
+        android:id="@+id/btn_addtocart"
         android:layout_width="@dimen/_40sdp"
         android:layout_height="@dimen/_40sdp"
         android:layout_gravity="bottom|center"
@@ -115,6 +117,15 @@
         android:src="@drawable/ic_cart"
 
         />
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        app:layout_anchor="@id/appbar"
+        app:layout_anchorGravity="bottom"
+        android:visibility="gone"/>
 
 
 

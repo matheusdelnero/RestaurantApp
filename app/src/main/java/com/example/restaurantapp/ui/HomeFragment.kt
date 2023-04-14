@@ -17,7 +17,14 @@ import com.example.restaurantapp.model.Meal
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
-     private val viewModel: HomeViewModel by viewModels()
+    private val viewModel: HomeViewModel by viewModels()
+    private lateinit var randomMeal: Meal
+
+    companion object {
+        const val MEAL_ID = "com.example.restaurantapp.ui.idMeal"
+        const val MEAL_NAME = "com.example.restaurantapp.ui.nameMeal"
+        const val MEAL_THUMB = "com.example.restaurantapp.ui.thumbMeal"
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,18 +56,22 @@ class HomeFragment : Fragment() {
     private fun onRandomMealClick() {
         binding.randomMealCard.setOnClickListener {
             val intent = Intent(activity,DetailActivity::class.java)
+            intent.putExtra(MEAL_ID,randomMeal.idMeal)
+            intent.putExtra(MEAL_NAME,randomMeal.strMeal)
+            intent.putExtra(MEAL_THUMB,randomMeal.strMealThumb)
             startActivity(intent)
         }
     }
 
     private fun observeRandomMeal() {
-        viewModel.observeRandomMealLiveData().observe(viewLifecycleOwner,object: Observer<Meal>{
-            override fun onChanged(value: Meal) {
-                Glide.with(this@HomeFragment)
-                    .load(value.strMealThumb)
-                    .into(binding.imgRandomMeal)
-            }
-        })
+        viewModel.observeRandomMealLiveData().observe(viewLifecycleOwner
+        ) { meal ->
+            Glide.with(this@HomeFragment)
+                .load(meal.strMealThumb)
+                .into(binding.imgRandomMeal)
+
+            this.randomMeal = meal
+        }
     }
 
 

@@ -32,6 +32,13 @@ class HomeFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         RetrofitInstante.api.getRandomMeal().enqueue(object :Callback<MealList>{
             override fun onResponse(call: Call<MealList>, response: Response<MealList>) {
                 if(response.body() != null){

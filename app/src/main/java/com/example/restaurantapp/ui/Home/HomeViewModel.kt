@@ -1,9 +1,11 @@
-package com.example.restaurantapp.ui
+package com.example.restaurantapp.ui.Home
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.restaurantapp.model.CategoryList
+import com.example.restaurantapp.model.CategoryMeals
 import com.example.restaurantapp.model.Meal
 import com.example.restaurantapp.model.MealList
 import com.example.restaurantapp.retrofit.RetrofitInstante
@@ -13,6 +15,8 @@ import retrofit2.Response
 
 class HomeViewModel: ViewModel() {
     private var randomMealLiveData = MutableLiveData<Meal>()
+
+    private var popularItensLiveData = MutableLiveData<List<CategoryMeals>>()
 
 
     fun getRandomMeal(){
@@ -34,7 +38,25 @@ class HomeViewModel: ViewModel() {
 
     }
 
+    fun getPopularItens(){
+        RetrofitInstante.api.getPopularItens("SeaFood").enqueue(object : Callback<CategoryList>{
+            override fun onResponse(call: Call<CategoryList>, response: Response<CategoryList>) {
+                if (response.body() != null){
+                    popularItensLiveData.value = response.body()!!.meals
+                }
+            }
+
+            override fun onFailure(call: Call<CategoryList>, t: Throwable) {
+                Log.d("HomeFragment",t.message.toString())
+            }
+        })
+    }
+
     fun observeRandomMealLiveData(): LiveData<Meal>{
         return randomMealLiveData
+    }
+
+    fun observePopularItensLiveData():LiveData<List<CategoryMeals>>{
+        return popularItensLiveData
     }
 }

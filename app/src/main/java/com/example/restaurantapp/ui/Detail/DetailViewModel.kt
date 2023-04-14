@@ -1,4 +1,4 @@
-package com.example.restaurantapp.ui
+package com.example.restaurantapp.ui.Detail
 
 import android.util.Log
 import androidx.lifecycle.LiveData

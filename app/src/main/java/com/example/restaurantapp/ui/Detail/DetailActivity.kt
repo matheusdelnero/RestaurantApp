@@ -1,16 +1,15 @@
-package com.example.restaurantapp.ui
+package com.example.restaurantapp.ui.Detail
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.restaurantapp.R
 import com.example.restaurantapp.databinding.ActivityDetailBinding
 import com.example.restaurantapp.model.Meal
+import com.example.restaurantapp.ui.Home.HomeFragment
 
 class DetailActivity : AppCompatActivity() {
 

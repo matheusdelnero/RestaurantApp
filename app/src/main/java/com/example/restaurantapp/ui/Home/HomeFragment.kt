@@ -3,7 +3,6 @@ package com.example.restaurantapp.ui.Home
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -18,6 +17,7 @@ import com.example.restaurantapp.adapters.MostPopularAdapter
 import com.example.restaurantapp.databinding.FragmentHomeBinding
 import com.example.restaurantapp.model.MealsByCategory
 import com.example.restaurantapp.model.Meal
+import com.example.restaurantapp.ui.CategoryMealsActivity
 import com.example.restaurantapp.ui.Detail.DetailActivity
 
 
@@ -32,6 +32,7 @@ class HomeFragment : Fragment() {
         const val MEAL_ID = "com.example.restaurantapp.ui.idMeal"
         const val MEAL_NAME = "com.example.restaurantapp.ui.nameMeal"
         const val MEAL_THUMB = "com.example.restaurantapp.ui.thumbMeal"
+        const val CATEGORY_NAME = "com.example.restaurantapp.ui.Home.categoryName"
     }
 
     override fun onCreateView(
@@ -68,11 +69,21 @@ class HomeFragment : Fragment() {
         prepareCategoriesRecycler()
         viewModel.getCategories()
         observeCategoriesLiveData()
+        onCategoryClick()
 
 
 
 
 
+    }
+
+    private fun onCategoryClick() {
+        categoriesAdapter.onItemClick = {category ->
+            val intent = Intent(activity,CategoryMealsActivity::class.java)
+            intent.putExtra(CATEGORY_NAME,category.strCategory)
+            startActivity(intent)
+
+        }
     }
 
     private fun prepareCategoriesRecycler() {

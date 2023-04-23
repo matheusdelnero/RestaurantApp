@@ -8,10 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.RecyclerView
 import com.example.restaurantapp.MainActivity
 import com.example.restaurantapp.R
 import com.example.restaurantapp.databinding.FragmentCartBinding
 import com.example.restaurantapp.ui.Home.HomeViewModel
+import com.google.android.material.snackbar.Snackbar
 
 
 class CartFragment : Fragment() {
@@ -39,6 +42,31 @@ class CartFragment : Fragment() {
 
         prepareRecyclerView()
         observeCart()
+
+        val itemTouchHelper = object : ItemTouchHelper.SimpleCallback(
+            ItemTouchHelper.UP or ItemTouchHelper.DOWN,
+            ItemTouchHelper.RIGHT or ItemTouchHelper.LEFT
+        ){
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ) = true
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val position = viewHolder.adapterPosition
+                viewModel.deleteMeal(cartAdapter.differ.currentList[position])
+
+                Snackbar.make(requireView(),"Item Excluido do Carrinho",Snackbar.LENGTH_LONG).setAction(
+                    "Undo",
+                    View.OnClickListener {
+                        viewModel.insertMeal(cartAdapter.differ.currentList[position])
+                    }
+                ).show()
+            }
+        }
+
+        ItemTouchHelper(itemTouchHelper).attachToRecyclerView(binding.rvCart)
     }
 
     private fun prepareRecyclerView() {

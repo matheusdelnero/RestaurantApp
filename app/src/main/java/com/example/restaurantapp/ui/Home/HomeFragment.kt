@@ -64,7 +64,6 @@ class HomeFragment : Fragment() {
 
         preparePopularItensRecycler()
 
-        viewModel.getRandomMeal()
         observeRandomMeal()
         onRandomMealClick()
 

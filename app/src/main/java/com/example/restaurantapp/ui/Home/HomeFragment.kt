@@ -12,6 +12,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
+import com.example.restaurantapp.MainActivity
 import com.example.restaurantapp.adapters.CategoriesAdapter
 import com.example.restaurantapp.adapters.MostPopularAdapter
 import com.example.restaurantapp.databinding.FragmentHomeBinding
@@ -23,7 +24,8 @@ import com.example.restaurantapp.ui.Detail.DetailActivity
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
-    private val viewModel: HomeViewModel by viewModels()
+    private lateinit var viewModel: HomeViewModel
+    //private val viewModel: HomeViewModel by viewModels()
     private lateinit var randomMeal: Meal
     private lateinit var popularItensAdapter: MostPopularAdapter
     private lateinit var categoriesAdapter: CategoriesAdapter
@@ -46,6 +48,8 @@ class HomeFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        viewModel = (activity as MainActivity).viewModel
+
         popularItensAdapter = MostPopularAdapter()
 
 

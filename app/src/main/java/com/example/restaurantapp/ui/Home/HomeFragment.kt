@@ -9,10 +9,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.restaurantapp.MainActivity
+import com.example.restaurantapp.R
 import com.example.restaurantapp.adapters.CategoriesAdapter
 import com.example.restaurantapp.adapters.MostPopularAdapter
 import com.example.restaurantapp.databinding.FragmentHomeBinding
@@ -75,10 +77,18 @@ class HomeFragment : Fragment() {
         observeCategoriesLiveData()
         onCategoryClick()
 
+        onSearchIconClick()
 
 
 
 
+
+    }
+
+    private fun onSearchIconClick() {
+        binding.imgSearch.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
+        }
     }
 
     private fun onCategoryClick() {

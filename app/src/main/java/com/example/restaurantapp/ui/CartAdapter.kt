@@ -7,11 +7,12 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.restaurantapp.databinding.MealItemBinding
+import com.example.restaurantapp.databinding.MealItemCartBinding
 import com.example.restaurantapp.model.Meal
 
 class CartAdapter: RecyclerView.Adapter<CartAdapter.CartAdapterViewHolder>() {
 
-    inner class CartAdapterViewHolder(val binding: MealItemBinding) : RecyclerView.ViewHolder(binding.root)
+    inner class CartAdapterViewHolder(val binding: MealItemCartBinding) : RecyclerView.ViewHolder(binding.root)
 
     private val diffUtil = object : DiffUtil.ItemCallback<Meal>(){
         override fun areItemsTheSame(oldItem: Meal, newItem: Meal): Boolean {
@@ -26,7 +27,7 @@ class CartAdapter: RecyclerView.Adapter<CartAdapter.CartAdapterViewHolder>() {
     val differ = AsyncListDiffer(this,diffUtil)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartAdapterViewHolder {
         return  CartAdapterViewHolder(
-            MealItemBinding.inflate(
+            MealItemCartBinding.inflate(
                 LayoutInflater.from(parent.context),parent,false
             )
         )

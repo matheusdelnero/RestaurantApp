@@ -56,7 +56,7 @@ class DetailActivity : AppCompatActivity() {
         binding.btnAddtocart.setOnClickListener {
             mealToSave?.let {
                 viewModel.insertMeal(it)
-                Toast.makeText(this,"FOI!!!",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"Produto Adicionado ao Carrinho!",Toast.LENGTH_SHORT).show()
             }
         }
     }

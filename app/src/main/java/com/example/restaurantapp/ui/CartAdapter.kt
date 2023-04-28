@@ -8,11 +8,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.restaurantapp.databinding.MealItemBinding
 import com.example.restaurantapp.databinding.MealItemCartBinding
+import com.example.restaurantapp.databinding.NewMealItemBinding
 import com.example.restaurantapp.model.Meal
 
 class CartAdapter: RecyclerView.Adapter<CartAdapter.CartAdapterViewHolder>() {
 
-    inner class CartAdapterViewHolder(val binding: MealItemCartBinding) : RecyclerView.ViewHolder(binding.root)
+    inner class CartAdapterViewHolder(val binding: NewMealItemBinding) : RecyclerView.ViewHolder(binding.root)
 
     private val diffUtil = object : DiffUtil.ItemCallback<Meal>(){
         override fun areItemsTheSame(oldItem: Meal, newItem: Meal): Boolean {
@@ -27,7 +28,7 @@ class CartAdapter: RecyclerView.Adapter<CartAdapter.CartAdapterViewHolder>() {
     val differ = AsyncListDiffer(this,diffUtil)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartAdapterViewHolder {
         return  CartAdapterViewHolder(
-            MealItemCartBinding.inflate(
+            NewMealItemBinding.inflate(
                 LayoutInflater.from(parent.context),parent,false
             )
         )
@@ -39,7 +40,7 @@ class CartAdapter: RecyclerView.Adapter<CartAdapter.CartAdapterViewHolder>() {
 
     override fun onBindViewHolder(holder: CartAdapterViewHolder, position: Int) {
         val meal = differ.currentList[position]
-        Glide.with(holder.itemView).load(meal.strMealThumb).into(holder.binding.imgMeal)
-        holder.binding.tvMealName.text = meal.strMeal
+        Glide.with(holder.itemView).load(meal.strMealThumb).into(holder.binding.imageView)
+        holder.binding.textView.text = meal.strMeal
     }
 }

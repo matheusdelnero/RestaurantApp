@@ -10,4 +10,5 @@
     <color name="strongOrange">#FF8C00</color>
     <color name="g_black">#33405f</color>
     <color name="g_gray">#9F9F9F</color>
+    <color name="tansparentColor">#00FFFFFF</color>
 </resources>

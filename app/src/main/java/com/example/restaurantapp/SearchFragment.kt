@@ -77,7 +77,7 @@ class SearchFragment : Fragment() {
     private fun prepareRecycler() {
         searchRecyclerViewAdapter = SearchAdapter()
         binding.rvSearchMeals.apply {
-            layoutManager = GridLayoutManager(context,1,GridLayoutManager.VERTICAL,false)
+            layoutManager = GridLayoutManager(context,2,GridLayoutManager.VERTICAL,false)
             adapter = searchRecyclerViewAdapter
         }
     }

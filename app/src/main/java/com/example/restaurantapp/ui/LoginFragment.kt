@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.restaurantapp.MainActivity
 import com.example.restaurantapp.R
 import com.example.restaurantapp.databinding.FragmentLoginBinding
@@ -40,8 +41,11 @@ class LoginFragment : Fragment() {
             binding.singUp.setTextColor(resources.getColor(R.color.white,null))
             binding.logIn.background = null
             binding.singUpLayout.visibility = View.VISIBLE
+            binding.endereco.visibility = View.VISIBLE
+            binding.bairro.visibility = View.VISIBLE
             binding.logInLayout.visibility = View.GONE
             binding.logIn.setTextColor(resources.getColor(R.color.strongOrange,null))
+            binding.ou.textSize = 12F
         }
         binding.logIn.setOnClickListener {
             binding.singUp.background = null
@@ -50,7 +54,16 @@ class LoginFragment : Fragment() {
             binding.singUpLayout.visibility = View.GONE
             binding.logInLayout.visibility = View.VISIBLE
             binding.logIn.setTextColor(resources.getColor(R.color.white,null))
+            binding.ou.textSize = 18F
         }
+
+        binding.singIn.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_myAccountFragment)
+
+
+        }
+
+
 
 
     }

@@ -60,7 +60,6 @@ class LoginFragment : Fragment() {
         binding.singIn.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_myAccountFragment)
 
-
         }
 
 

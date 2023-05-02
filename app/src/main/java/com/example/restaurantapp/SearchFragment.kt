@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.restaurantapp.databinding.FragmentSearchBinding
 import com.example.restaurantapp.ui.CartAdapter
 import com.example.restaurantapp.ui.Home.HomeViewModel
+import com.example.restaurantapp.ui.SearchAdapter
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -21,7 +22,7 @@ import kotlinx.coroutines.launch
 class SearchFragment : Fragment() {
     private lateinit var binding: FragmentSearchBinding
     private lateinit var viewModel:HomeViewModel
-    private lateinit var searchRecyclerViewAdapter: CartAdapter
+    private lateinit var searchRecyclerViewAdapter: SearchAdapter
 
 
 
@@ -74,7 +75,7 @@ class SearchFragment : Fragment() {
     }
 
     private fun prepareRecycler() {
-        searchRecyclerViewAdapter = CartAdapter()
+        searchRecyclerViewAdapter = SearchAdapter()
         binding.rvSearchMeals.apply {
             layoutManager = GridLayoutManager(context,1,GridLayoutManager.VERTICAL,false)
             adapter = searchRecyclerViewAdapter

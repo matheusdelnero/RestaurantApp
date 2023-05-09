@@ -1,4 +1,4 @@
-package com.example.restaurantapp
+package com.example.restaurantapp.ui.Home
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,11 +9,8 @@ import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.restaurantapp.MainActivity
 import com.example.restaurantapp.databinding.FragmentSearchBinding
-import com.example.restaurantapp.ui.CartAdapter
-import com.example.restaurantapp.ui.Home.HomeViewModel
-import com.example.restaurantapp.ui.SearchAdapter
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch

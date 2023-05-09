@@ -1,7 +1,6 @@
-package com.example.restaurantapp.ui
+package com.example.restaurantapp.ui.Cart
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +10,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.restaurantapp.MainActivity
-import com.example.restaurantapp.R
 import com.example.restaurantapp.databinding.FragmentCartBinding
 import com.example.restaurantapp.ui.Home.HomeViewModel
 import com.google.android.material.snackbar.Snackbar

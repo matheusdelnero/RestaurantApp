@@ -1,4 +1,4 @@
-package com.example.restaurantapp.ui
+package com.example.restaurantapp.ui.Login
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

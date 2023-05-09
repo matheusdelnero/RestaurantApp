@@ -1,4 +1,4 @@
-package com.example.restaurantapp.ui
+package com.example.restaurantapp.ui.Login
 
 import android.content.Intent
 import android.os.Bundle

@@ -1,4 +1,4 @@
-package com.example.restaurantapp.ui
+package com.example.restaurantapp.ui.Home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,8 +7,6 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.restaurantapp.databinding.MealItemBinding
-import com.example.restaurantapp.databinding.MealItemCartBinding
-import com.example.restaurantapp.databinding.NewMealItemBinding
 import com.example.restaurantapp.model.Meal
 
 class SearchAdapter: RecyclerView.Adapter<SearchAdapter.CartAdapterViewHolder>() {

@@ -16,12 +16,12 @@
     </fragment>
     <fragment
         android:id="@+id/cartFragment"
-        android:name="com.example.restaurantapp.ui.CartFragment"
+        android:name="com.example.restaurantapp.ui.Cart.CartFragment"
         android:label="fragment_cart"
         tools:layout="@layout/fragment_cart" />
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.restaurantapp.ui.LoginFragment"
+        android:name="com.example.restaurantapp.ui.Login.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -30,12 +30,12 @@
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.example.restaurantapp.SearchFragment"
+        android:name="com.example.restaurantapp.ui.Home.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" />
     <fragment
         android:id="@+id/myAccountFragment"
-        android:name="com.example.restaurantapp.ui.MyAccountFragment"
+        android:name="com.example.restaurantapp.ui.Login.MyAccountFragment"
         android:label="fragment_my_account"
         tools:layout="@layout/fragment_my_account" />
 </navigation>

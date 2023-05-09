@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -20,7 +19,7 @@ import com.example.restaurantapp.adapters.MostPopularAdapter
 import com.example.restaurantapp.databinding.FragmentHomeBinding
 import com.example.restaurantapp.model.MealsByCategory
 import com.example.restaurantapp.model.Meal
-import com.example.restaurantapp.ui.CategoryMealsActivity
+import com.example.restaurantapp.ui.Category.CategoryMealsActivity
 import com.example.restaurantapp.ui.Detail.DetailActivity
 
 
@@ -92,7 +91,7 @@ class HomeFragment : Fragment() {
 
     private fun onCategoryClick() {
         categoriesAdapter.onItemClick = {category ->
-            val intent = Intent(activity,CategoryMealsActivity::class.java)
+            val intent = Intent(activity, CategoryMealsActivity::class.java)
             intent.putExtra(CATEGORY_NAME,category.strCategory)
             startActivity(intent)
 

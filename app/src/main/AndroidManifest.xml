@@ -18,7 +18,7 @@
             android:name=".ui.MyAccountActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.CategoryMealsActivity"
+            android:name=".ui.Category.CategoryMealsActivity"
             android:exported="false" />
         <activity
             android:name=".ui.Detail.DetailActivity"

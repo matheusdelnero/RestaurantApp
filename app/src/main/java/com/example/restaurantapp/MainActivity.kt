@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
 import com.example.restaurantapp.db.MealDataBase
+import com.example.restaurantapp.db.UserDataBase
 import com.example.restaurantapp.ui.Home.HomeViewModel
 import com.example.restaurantapp.ui.Home.HomeViewModelFactory
 import com.google.android.material.bottomnavigation.BottomNavigationView

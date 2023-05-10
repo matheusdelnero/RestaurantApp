@@ -104,7 +104,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:inputType="textPersonName|textEmailAddress"
-                        android:id="@+id/eMail"
+                        android:id="@+id/telefonelogin"
                         android:ems="10"
                         android:textSize="13sp"
                         android:textColor="@color/black"
@@ -118,7 +118,6 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
                     android:layout_marginTop="5dp"
-
                     app:hintTextColor="#4E4A4A"
                     app:boxStrokeColor="#4E4A4A"
                     app:boxStrokeWidth="1dp"
@@ -129,7 +128,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:inputType="textPassword"
-                        android:id="@+id/passwords"
+                        android:id="@+id/senhalogin"
                         android:ems="10"
                         android:textSize="13sp"
                         android:textColor="@color/black"
@@ -172,7 +171,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:inputType="textPersonName|textEmailAddress"
-                        android:id="@+id/eMails"
+                        android:id="@+id/telefone"
                         android:ems="10"
                         android:textSize="13sp"
                         android:textColor="@color/black"
@@ -194,8 +193,8 @@
                     android:layout_height="wrap_content">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:inputType="textPassword"
-                        android:id="@+id/passwordss"
+                        android:inputType="textPersonName|textEmailAddress"
+                        android:id="@+id/endereco"
                         android:ems="10"
                         android:textSize="13sp"
                         android:textColor="@color/black"
@@ -217,7 +216,7 @@
                     android:layout_height="wrap_content">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:inputType="textPassword"
+                        android:inputType="textPersonName|textEmailAddress"
                         android:id="@+id/bairro"
                         android:ems="10"
                         android:textSize="13sp"
@@ -242,7 +241,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:inputType="textPassword"
-                        android:id="@+id/passwords01"
+                        android:id="@+id/senha"
                         android:ems="10"
                         android:textSize="13sp"
                         android:textColor="@color/black"
@@ -267,7 +266,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:inputType="textPassword"
-                        android:id="@+id/endereco"
+                        android:id="@+id/confirmsenha"
                         android:ems="10"
                         android:textSize="13sp"
                         android:textColor="@color/black"

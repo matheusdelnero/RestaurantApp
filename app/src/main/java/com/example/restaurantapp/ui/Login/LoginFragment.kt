@@ -66,11 +66,12 @@ class LoginFragment : Fragment() {
 
         binding.singIn.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_myAccountFragment)
-            val telefone: String = binding.eMail.text.toString()
-            val endereco : String = binding.endereco.text.toString()
+            val telefone: String = binding.telefone.text.toString()
+            val endereco: String = binding.endereco.text.toString()
             val bairro: String = binding.bairro.text.toString()
-            val senha: String = binding.passwords.text.toString()
-            val confirmsenha: String = binding.passwordss.text.toString()
+            val senha: String = binding.senha.text.toString()
+            val confirmsenha : String = binding.confirmsenha.text.toString()
+
 
             val user = User(telefone,endereco,bairro,senha,confirmsenha)
 

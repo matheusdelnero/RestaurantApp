@@ -1,16 +1,20 @@
 package com.example.restaurantapp.ui.Login
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import androidx.room.Room
 import com.example.restaurantapp.MainActivity
 import com.example.restaurantapp.R
 import com.example.restaurantapp.databinding.FragmentLoginBinding
+import com.example.restaurantapp.db.MealDataBase
+import com.example.restaurantapp.db.UserDataBase
+import com.example.restaurantapp.model.User
 import com.example.restaurantapp.ui.Home.HomeViewModel
+import kotlinx.coroutines.runBlocking
 
 
 class LoginFragment : Fragment() {
@@ -19,9 +23,12 @@ class LoginFragment : Fragment() {
 
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = (activity as MainActivity).viewModel
+
+
 
     }
 
@@ -59,6 +66,25 @@ class LoginFragment : Fragment() {
 
         binding.singIn.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_myAccountFragment)
+            val telefone: String = binding.eMail.text.toString()
+            val endereco : String = binding.endereco.text.toString()
+            val bairro: String = binding.bairro.text.toString()
+            val senha: String = binding.passwords.text.toString()
+            val confirmsenha: String = binding.passwordss.text.toString()
+
+            val user = User(telefone,endereco,bairro,senha,confirmsenha)
+
+            val userDataBase by lazy {
+                Room.databaseBuilder(
+                    requireContext(),
+                    UserDataBase::class.java,
+                    "user.db"
+                ).build()
+            }
+
+            runBlocking {
+                userDataBase.userDao().insertUser(user)
+            }
 
         }
 

@@ -8,6 +8,7 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.example.restaurantapp.model.User
 
+//Banco de Dados para Salvar Dados de Login e Cadastro de Usuario
 @Database(entities = [User::class], version = 1)
 @TypeConverters(MealTypeConverter::class)
 abstract class UserDataBase: RoomDatabase() {

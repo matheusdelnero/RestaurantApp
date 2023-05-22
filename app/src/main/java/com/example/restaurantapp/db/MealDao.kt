@@ -8,6 +8,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.restaurantapp.model.Meal
 
+//Criando Banco de Dados para Receitas Adicionadas ao Carrinho de Compras
 @Dao
 interface MealDao {
 

@@ -130,13 +130,19 @@ class LoginFragment : Fragment(),View.OnClickListener,View.OnFocusChangeListener
     }
 
     fun validatePasswordAndConfirm(): Boolean{
-        var error: String? = null
+        var errorMessage: String? = null
         val senha = binding.senha.text.toString()
         val confirmSenha = binding.confirmsenha.text.toString()
         if (senha != confirmSenha){
-            error = "Confirmação de Senha não é igual a Senha."
+            errorMessage = "Confirmação de Senha não é igual a Senha."
         }
-        return error == null
+        if (errorMessage != null) {
+            binding.confirmSenhaLayout.apply {
+                isErrorEnabled = true
+                error = errorMessage
+            }
+        }
+        return errorMessage == null
     }
 
 
@@ -266,14 +272,27 @@ class LoginFragment : Fragment(),View.OnClickListener,View.OnFocusChangeListener
                         if(binding.senhaLayout.isErrorEnabled){
                             binding.senhaLayout.isErrorEnabled = false
                         }
-                    } else {validatePassword()}
+                    } else {if(validatePassword() && binding.confirmsenha.text!!.isNotEmpty() && validateConfirmPassword() && validatePasswordAndConfirm()){
+                        if (binding.confirmSenhaLayout.isErrorEnabled){
+                            binding.confirmSenhaLayout.isErrorEnabled = false
+                        }
+                        binding.confirmSenhaLayout.setStartIconDrawable(R.drawable.check_circle_24)
+                    }}
                 }
                 R.id.confirmsenha -> {
                     if(hasFocus){
                         if(binding.confirmSenhaLayout.isErrorEnabled){
                             binding.confirmSenhaLayout.isErrorEnabled = false
                         }
-                    } else {validateConfirmPassword()}
+                    } else {
+                        if (validateConfirmPassword() && validatePassword() && validatePasswordAndConfirm()){
+
+                            if (binding.senhaLayout.isErrorEnabled){
+                                binding.senhaLayout.isErrorEnabled = false
+                            }
+                            binding.confirmSenhaLayout.setStartIconDrawable(R.drawable.check_circle_24)
+                        }
+                    }
                 }
             }
         }

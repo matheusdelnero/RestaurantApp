@@ -1,5 +1,7 @@
 package com.example.restaurantapp.ui.Login
 
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Patterns
 import android.view.KeyEvent
@@ -276,7 +278,10 @@ class LoginFragment : Fragment(),View.OnClickListener,View.OnFocusChangeListener
                         if (binding.confirmSenhaLayout.isErrorEnabled){
                             binding.confirmSenhaLayout.isErrorEnabled = false
                         }
-                        binding.confirmSenhaLayout.setStartIconDrawable(R.drawable.check_circle_24)
+                        binding.confirmSenhaLayout.apply {
+                            setStartIconDrawable(R.drawable.check_circle_24)
+                            setStartIconTintList(ColorStateList.valueOf(Color.GREEN))
+                        }
                     }}
                 }
                 R.id.confirmsenha -> {
@@ -290,7 +295,10 @@ class LoginFragment : Fragment(),View.OnClickListener,View.OnFocusChangeListener
                             if (binding.senhaLayout.isErrorEnabled){
                                 binding.senhaLayout.isErrorEnabled = false
                             }
-                            binding.confirmSenhaLayout.setStartIconDrawable(R.drawable.check_circle_24)
+                            binding.confirmSenhaLayout.apply {
+                                setStartIconDrawable(R.drawable.check_circle_24)
+                                setStartIconTintList(ColorStateList.valueOf(Color.GREEN))
+                            }
                         }
                     }
                 }

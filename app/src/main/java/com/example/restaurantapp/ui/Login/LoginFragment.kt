@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.room.Room
 import com.example.restaurantapp.MainActivity
@@ -150,6 +151,8 @@ class LoginFragment : Fragment(),View.OnClickListener,View.OnFocusChangeListener
 
 
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = (activity as MainActivity).viewModel
@@ -193,6 +196,27 @@ class LoginFragment : Fragment(),View.OnClickListener,View.OnFocusChangeListener
             ).build()
         }
 
+        fun validatePhoneAlreadyTaken(){
+            val email = binding.telefone.text.toString()
+            runBlocking {
+                val count = userDataBase.userDao().checkIfEmailExists(email)
+                if (count > 0) {
+                    // O telefone já está cadastrado
+                    Toast.makeText(context, "Telefone já cadastrado", Toast.LENGTH_SHORT).show()
+                } else {
+                    val telefone: String = binding.telefone.text.toString()
+                    val endereco: String = binding.endereco.text.toString()
+                    val bairro: String = binding.bairro.text.toString()
+                    val senha: String = binding.senha.text.toString()
+                    val confirmsenha : String = binding.confirmsenha.text.toString()
+                    val user = User(telefone,endereco,bairro,senha,confirmsenha)
+                    runBlocking { userDataBase.userDao().insertUser(user) }
+                    findNavController().navigate(R.id.action_loginFragment_to_myAccountFragment)
+                }}
+
+
+        }
+
         binding.singUp.setOnClickListener {
             it.background = resources.getDrawable(R.drawable.switch_trcks,null)
             binding.singUp.setTextColor(resources.getColor(R.color.white,null))
@@ -215,21 +239,22 @@ class LoginFragment : Fragment(),View.OnClickListener,View.OnFocusChangeListener
         }
 
         binding.singIn.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_myAccountFragment)
             val telefone: String = binding.telefone.text.toString()
             val endereco: String = binding.endereco.text.toString()
             val bairro: String = binding.bairro.text.toString()
             val senha: String = binding.senha.text.toString()
             val confirmsenha : String = binding.confirmsenha.text.toString()
-
-
             val user = User(telefone,endereco,bairro,senha,confirmsenha)
 
+            runBlocking { if (user.telefone!!.isNotEmpty() && user.endereco!!.isNotEmpty() && user.bairro!!.isNotEmpty() && user.senha!!.isNotEmpty() && user.confirmacaoSenha!!.isNotEmpty()){
+                validatePhoneAlreadyTaken()
+            } }
 
 
-            runBlocking {
-                userDataBase.userDao().insertUser(user)
-            }
+
+
+
+
 
         }
 

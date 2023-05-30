@@ -18,7 +18,8 @@ interface UserDao {
     suspend fun insertUser(user: User)
 
 
-
+    @Query("SELECT COUNT(*) FROM user WHERE telefone = :telefone")
+    suspend fun checkIfEmailExists(telefone: String): Int
 
 
 }

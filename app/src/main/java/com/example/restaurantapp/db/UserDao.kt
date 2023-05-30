@@ -21,6 +21,9 @@ interface UserDao {
     @Query("SELECT COUNT(*) FROM user WHERE telefone = :telefone")
     suspend fun checkIfEmailExists(telefone: String): Int
 
+    @Query("SELECT * FROM user WHERE telefone = :telefone AND senha = :senha")
+    suspend fun getUserByTelefoneESenha(telefone: String, senha: String): User?
+
 
 
 

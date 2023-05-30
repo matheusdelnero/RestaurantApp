@@ -319,7 +319,10 @@
         android:id="@+id/botaocadastro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
         android:text="Cadastre-se"
+        android:textSize="17sp"
+        app:backgroundTint="@color/strongOrange"
         android:layout_gravity="center"
         android:visibility="gone"/>
 

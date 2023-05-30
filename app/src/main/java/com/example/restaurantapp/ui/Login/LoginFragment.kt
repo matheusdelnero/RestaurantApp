@@ -253,15 +253,25 @@ class LoginFragment : Fragment(),View.OnClickListener,View.OnFocusChangeListener
 
             runBlocking { if (user.telefone!!.isNotEmpty() && user.endereco!!.isNotEmpty() && user.bairro!!.isNotEmpty() && user.senha!!.isNotEmpty() && user.confirmacaoSenha!!.isNotEmpty()){
                 validatePhoneAlreadyTaken()
-            } }
+            } } }
 
 
 
+        binding.singIn.setOnClickListener {
+            val tel = binding.telefonelogin.text.toString()
+            val senha = binding.senhalogin.text.toString()
 
+            runBlocking { val user = userDataBase.userDao().getUserByTelefoneESenha(tel, senha)
 
-
+                if (user != null) {
+                    findNavController().navigate(R.id.action_loginFragment_to_myAccountFragment)
+                } else {
+                    Toast.makeText(context, "Usuario ou senha incorreto", Toast.LENGTH_SHORT).show()
+                    // Usuário não encontrado ou credenciais incorretas
+                } }
 
         }
+
 
 
 

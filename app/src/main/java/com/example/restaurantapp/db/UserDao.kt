@@ -22,4 +22,7 @@ interface UserDao {
     suspend fun checkIfEmailExists(telefone: String): Int
 
 
+
+
+
 }

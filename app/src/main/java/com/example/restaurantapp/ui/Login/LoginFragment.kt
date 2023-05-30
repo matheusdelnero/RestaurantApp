@@ -226,7 +226,9 @@ class LoginFragment : Fragment(),View.OnClickListener,View.OnFocusChangeListener
             binding.bairro.visibility = View.VISIBLE
             binding.logInLayout.visibility = View.GONE
             binding.logIn.setTextColor(resources.getColor(R.color.strongOrange,null))
-            binding.ou.textSize = 12F
+            //binding.ou.textSize = 12F
+            binding.singIn.visibility = View.GONE
+            binding.botaocadastro.visibility = View.VISIBLE
         }
         binding.logIn.setOnClickListener {
             binding.singUp.background = null
@@ -235,10 +237,13 @@ class LoginFragment : Fragment(),View.OnClickListener,View.OnFocusChangeListener
             binding.singUpLayout.visibility = View.GONE
             binding.logInLayout.visibility = View.VISIBLE
             binding.logIn.setTextColor(resources.getColor(R.color.white,null))
-            binding.ou.textSize = 18F
+            binding.botaocadastro.visibility = View.GONE
+            binding.singIn.visibility = View.VISIBLE
+            //binding.ou.textSize = 18F
+
         }
 
-        binding.singIn.setOnClickListener {
+        binding.botaocadastro.setOnClickListener {
             val telefone: String = binding.telefone.text.toString()
             val endereco: String = binding.endereco.text.toString()
             val bairro: String = binding.bairro.text.toString()

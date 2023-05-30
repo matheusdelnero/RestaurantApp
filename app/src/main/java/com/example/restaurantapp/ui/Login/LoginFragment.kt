@@ -250,7 +250,9 @@ class LoginFragment : Fragment(),View.OnClickListener,View.OnFocusChangeListener
                         if(binding.telefoneLayout.isErrorEnabled){
                             binding.telefoneLayout.isErrorEnabled = false
                         }
-                    } else {validatePhone()}
+                    } else {if(validatePhone()){
+                        //confirmar se ja nao existe conta com email
+                    }}
                 }
 
 

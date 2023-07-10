@@ -63,7 +63,9 @@ class CartAdapter: RecyclerView.Adapter<CartAdapter.CartAdapterViewHolder>() {
 
         holder.binding.imageView3.setOnClickListener {
 
-            numero -= 1
+            if (numero < 1){numero = 0}
+            else {numero -= 1}
+
             holder.binding.textView2.text = numero.toString()
 
         }

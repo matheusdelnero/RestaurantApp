@@ -11,7 +11,10 @@ import com.example.restaurantapp.model.Meal
 
 class CartAdapter: RecyclerView.Adapter<CartAdapter.CartAdapterViewHolder>() {
 
+
     inner class CartAdapterViewHolder(val binding: NewMealItemBinding) : RecyclerView.ViewHolder(binding.root)
+
+
 
     private val diffUtil = object : DiffUtil.ItemCallback<Meal>(){
         override fun areItemsTheSame(oldItem: Meal, newItem: Meal): Boolean {
@@ -30,6 +33,7 @@ class CartAdapter: RecyclerView.Adapter<CartAdapter.CartAdapterViewHolder>() {
                 LayoutInflater.from(parent.context),parent,false
             )
         )
+
     }
 
     override fun getItemCount(): Int {
@@ -40,5 +44,30 @@ class CartAdapter: RecyclerView.Adapter<CartAdapter.CartAdapterViewHolder>() {
         val meal = differ.currentList[position]
         Glide.with(holder.itemView).load(meal.strMealThumb).into(holder.binding.imageView)
         holder.binding.textView.text = meal.strMeal
+
+        // Funcionalidade Quantidade produtos
+
+        val valor = holder.binding.textView2.text.toString()
+        var numero : Int = valor.toInt()
+
+        // Botão Adicionar
+
+        holder.binding.imageView4.setOnClickListener {
+
+            numero += 1
+            holder.binding.textView2.text = numero.toString()
+
+        }
+
+        //Botão Diminuir
+
+        holder.binding.imageView3.setOnClickListener {
+
+            numero -= 1
+            holder.binding.textView2.text = numero.toString()
+
+        }
     }
+
+
 }

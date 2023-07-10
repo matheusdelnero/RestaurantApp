@@ -261,10 +261,12 @@ class LoginFragment : Fragment(),View.OnClickListener,View.OnFocusChangeListener
             val tel = binding.telefonelogin.text.toString()
             val senha = binding.senhalogin.text.toString()
 
-            runBlocking { val user = userDataBase.userDao().getUserByTelefoneESenha(tel, senha)
+            runBlocking {
+                val user = userDataBase.userDao().getUserByTelefoneESenha(tel, senha)
 
                 if (user != null) {
                     findNavController().navigate(R.id.action_loginFragment_to_myAccountFragment)
+                    //Usuario Encontrado
                 } else {
                     Toast.makeText(context, "Usuario ou senha incorreto", Toast.LENGTH_SHORT).show()
                     // Usuário não encontrado ou credenciais incorretas

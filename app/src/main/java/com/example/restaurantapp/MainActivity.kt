@@ -18,6 +18,9 @@ class MainActivity : AppCompatActivity() {
         val homeViewModelProvider = HomeViewModelFactory(mealDataBase)
         ViewModelProvider(this,homeViewModelProvider)[HomeViewModel::class.java]
     }
+
+    //Atribuindo Menu Navegação e Layout da Activity Main, que vai receber todos os Fragments
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
